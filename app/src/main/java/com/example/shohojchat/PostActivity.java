@@ -26,8 +26,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -37,7 +37,7 @@ public class PostActivity extends AppCompatActivity {
     EditText statusText;
     Button postNow;
 
-    final static int IMAGE_REQ = 1;
+    final  int IMAGE_REQ = 1;
 
     StorageReference storageReference;
 
@@ -48,8 +48,7 @@ public class PostActivity extends AppCompatActivity {
 
     String myId;
 
-    String myUrl;
-
+    String myUrl="null";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +77,8 @@ public class PostActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-
                 intent.setType("image/*");
-
-                startActivityForResult(intent, IMAGE_REQ);
+                startActivityForResult(intent,IMAGE_REQ);
 
 
             }
@@ -89,7 +86,6 @@ public class PostActivity extends AppCompatActivity {
 
 
         postNow.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
 
@@ -97,16 +93,16 @@ public class PostActivity extends AppCompatActivity {
                 String uiid = UUID.randomUUID().toString().replace("_", "");
 
                 uiid = uiid + System.currentTimeMillis();
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
 
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:aa");
+                Date date = new Date();
 
                 HashMap<String, Object> postMap = new HashMap<>();
                 postMap.put("status", status);
                 postMap.put("post_img", myUrl);
                 postMap.put("user_id", myId);
                 postMap.put("post_id", uiid);
-                postMap.put("date", dtf.format(now));
+                postMap.put("date", formatter.format(date));
 
                 databaseReference.child(uiid).setValue(postMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -159,15 +155,12 @@ public class PostActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Uri> task) {
 
                                     if (task.isSuccessful()) {
-                                        {
-
                                             Uri myUri = task.getResult();
 
                                             myUrl = String.valueOf(myUri);
-
-
-
-                                        }
+                                    }
+                                    else{
+                                        Toast.makeText(PostActivity.this, "Your Status Posted Failed to show", Toast.LENGTH_SHORT).show();
                                     }
 
 

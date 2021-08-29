@@ -56,13 +56,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         final Post post = postList.get(position);
         if(post!=null && firebaseUser!=null)
         {
-            if(post.getStatus().equals("")){
+            if(post.getStatus().equals("null")){
                 holder.captionText.setVisibility(View.GONE);
             }
             else {
                 holder.captionText.setText(post.getStatus());
             }
-            if (post.getPost_img().equals("")){
+            if (post.getPost_img().equals("null")){
                 holder.post_image.setVisibility(View.GONE);
             }
             else {
