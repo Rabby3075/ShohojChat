@@ -56,18 +56,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         final Post post = postList.get(position);
         if(post!=null && firebaseUser!=null)
         {
-            if(post.getStatus().equals("null")){
+            if(post.getStatus().equals("")){
                 holder.captionText.setVisibility(View.GONE);
             }
             else {
                 holder.captionText.setText(post.getStatus());
             }
-            if (post.getPost_img().equals("null")){
+            if (post.getPost_img().equals("")){
                 holder.post_image.setVisibility(View.GONE);
             }
             else {
                 Glide.with(context).load(post.getPost_img()).into(holder.post_image);
             }
+            holder.date.setText(post.getDate());
+
             getAuthor(holder.profilePicture,holder.user,post.getUser_id());
             holder.post_image.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -17,12 +17,14 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     public CircleImageView profilePicture;
     public TextView captionText,user;
     public ImageView post_image;
+    public TextView date;
     public PostViewHolder(@NonNull View itemView) {
         super(itemView);
         profilePicture = itemView.findViewById(R.id.profile_image);
         user = itemView.findViewById(R.id.userName);
         captionText =itemView.findViewById(R.id.caption);
         post_image = itemView.findViewById(R.id.postImage);
+        date = itemView.findViewById(R.id.dateTime);
 
     }
 }

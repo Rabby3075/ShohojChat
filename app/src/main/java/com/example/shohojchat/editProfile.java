@@ -42,7 +42,7 @@ public class editProfile extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
-    String ImageUrl = "";
+    String ImageUrl ;
 
 
     ProgressDialog progressDialog;
@@ -74,8 +74,10 @@ public class editProfile extends AppCompatActivity {
 
                         if(!user.getImgurl().equals("null")){
                             Glide.with(editProfile.this).load(user.getImgurl()).into(profileImg);
-
-
+                        }
+                        else
+                        {
+                            profileImg.setImageResource(R.mipmap.ic_launcher);
                         }
 
 

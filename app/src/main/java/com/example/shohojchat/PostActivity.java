@@ -2,10 +2,12 @@ package com.example.shohojchat;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +26,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -44,7 +48,7 @@ public class PostActivity extends AppCompatActivity {
 
     String myId;
 
-    String myUrl="";
+    String myUrl;
 
 
     @Override
@@ -85,6 +89,7 @@ public class PostActivity extends AppCompatActivity {
 
 
         postNow.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
 
@@ -92,6 +97,8 @@ public class PostActivity extends AppCompatActivity {
                 String uiid = UUID.randomUUID().toString().replace("_", "");
 
                 uiid = uiid + System.currentTimeMillis();
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
 
 
                 HashMap<String, Object> postMap = new HashMap<>();
@@ -99,6 +106,7 @@ public class PostActivity extends AppCompatActivity {
                 postMap.put("post_img", myUrl);
                 postMap.put("user_id", myId);
                 postMap.put("post_id", uiid);
+                postMap.put("date", dtf.format(now));
 
                 databaseReference.child(uiid).setValue(postMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
