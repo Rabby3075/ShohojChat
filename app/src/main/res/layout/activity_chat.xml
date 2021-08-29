@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChatActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/mytoolbar"
+            layout="@layout/toolbar" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mytoolbar"
+            android:layout_above="@+id/typeLayout"
+            />
+
+        <RelativeLayout
+            android:id="@+id/typeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_alignParentBottom="true">
+            <EditText
+                android:id="@+id/testMessage"
+                android:paddingStart="8dp"
+                android:background="#fff"
+                android:hint="type Your Message"
+                android:layout_width="match_parent"
+
+                android:layout_toEndOf="@+id/attachment"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/sendIcon"
+                android:layout_margin="5dp"
+                android:src="@drawable/send"
+                android:layout_alignParentEnd="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <ImageView
+                android:id="@+id/attachment"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_attachment"
+                android:layout_alignParentStart="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/nestedscrollview"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:background="@drawable/nested_background"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/imagesend"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curversolidborder"
+        android:paddingStart="15dp"
+        android:drawableStart="@drawable/ic_baseline_image_24"
+
+        android:textColor="#D50000"
+        android:fontFamily="@font/acme"
+        android:layout_margin="15dp"
+        android:text="Pick an Image" />
+    <Button
+        android:id="@+id/videosend"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curversolidborder"
+        android:paddingStart="15dp"
+        android:drawableStart="@drawable/ic_baseline_videocam_24"
+        android:textColor="#D50000"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Pick a Video" />
+
+    <Button
+        android:id="@+id/audiosend"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curversolidborder"
+        android:paddingStart="15dp"
+        android:drawableStart="@drawable/ic_baseline_audiotrack_24"
+        android:textColor="#D50000"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/acme"
+        android:text="Pick an Audio" />
+
+</LinearLayout>
+    
+</androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

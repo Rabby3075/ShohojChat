@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.shohojchat">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/chat"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/chat"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PostActivity"></activity>
+        <activity android:name=".verification" />
+        <activity android:name=".VideoFullView" />
+        <activity android:name=".ImageFullView" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".editProfile" />
+        <activity android:name=".myProfile" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".loginPage" />
+        <activity android:name=".registration" />
+        <activity android:name=".homepage" />
+        <activity android:name=".splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

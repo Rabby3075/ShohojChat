@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+     android:visibility="gone"
+        android:id="@+id/audiomsg"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:background="@drawable/otherback"
+     android:layout_toEndOf="@+id/imgMessage"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_play_circle_outline_24"
+            />
+        <ImageButton
+            android:id="@+id/pause"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/pause"
+            />
+        <ImageButton
+            android:id="@+id/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_stop_24"
+            />
+    </LinearLayout>
+
+
+    <VideoView
+        android:id="@+id/videoMessage"
+        android:visibility="gone"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/profile_images"
+        android:background="@drawable/otherback"
+        android:maxWidth="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/imgMessage"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/profile_images"
+        android:background="@drawable/otherback"
+        android:maxWidth="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_images"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/ic_launcher"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FFFCFC"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textMessage"
+        android:padding="3dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="5dp"
+        android:text="hello how are you?"
+        android:background="@drawable/otherback"
+        android:layout_toEndOf="@id/profile_images"
+        android:maxWidth="250dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

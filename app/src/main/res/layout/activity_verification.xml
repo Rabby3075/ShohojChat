@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".verification">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:background="#D50000"
+        android:padding="8dp"
+        android:text="User Not Valid"
+        android:textColor="#ffffff"
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bangers"
+        android:padding="8dp"
+        android:text="Go to your mail and verify your account"
+
+        android:textColor="#070707"
+        android:textSize="40sp" />
+    <Button
+        android:id="@+id/Resent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend Code"
+        android:fontFamily="@font/bangers"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:fontFamily="@font/bangers"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        />
+</LinearLayout>
